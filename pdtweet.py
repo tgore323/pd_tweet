@@ -2,16 +2,19 @@
 
 from auth import API, API_SECRET, BEARER_TOKEN, ACCESS, ACCESS_SECRET
 import tweepy
+import sys
 
 # verify that API keys have been entered into auth.py
+
 if len(API) <= 4:
-    print('\nAPI key(s) do not exist. Check auth.py file. ')
+    sys.exit("ERROR! API key not correct. Please check auth.py")
 if len(API_SECRET) <= 4:
-    print('\nAPI key(s) do not exist. Check auth.py file. ')
+    sys.exit("ERROR! API_SECRET key is not correct. Please check auth.py")
 if len(ACCESS) <= 4:
-    print('\nAPI key(s) do not exist. Check auth.py file. ')
+    sys.exit("ERROR! ACCESS key is not correct. Please check auth.py")
 if len(ACCESS_SECRET) <= 4:
-    print('\nAPI key(s) do not exist. Check auth.py file. ')
+    sys.exit("ERROR! ACCESS_SECRET key is not correct. Please check auth.py")
+
 
 # print list of agencies
 print("\n[1] LAPD")
