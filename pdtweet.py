@@ -108,6 +108,7 @@ if agencyselected == '1':
         division = 'UNKNOWN LOCATION'
     elif divisionselected == 'q':
         print('\nExiting...\n')
+        exit()
     else:
         print('\nInvalid selection. Please try again.\n')
 
@@ -178,6 +179,7 @@ elif agencyselected == '2':
         division = 'UNKNOWN LOCATION'
     elif divisionselected == 'q':
         print('\nExiting...\n')
+        exit()
     else:
         print('\nInvalid selection. Please try again.\n')
 
@@ -194,7 +196,6 @@ elif agencyselected == '3':
     print("[8] SOUTH LA")
     print("[9] EAST LA")
     print("[u] UNKNOWN LOCATION")
-
     print("[q] Quit")
     divisionselected = input("\nDivision or location: ")
     if divisionselected == '1':
@@ -219,19 +220,27 @@ elif agencyselected == '3':
         division = 'UNKNOWN LOCATION'
     elif divisionselected == 'q':
         print('\nExiting...\n')
+        exit()
     else:
         print('\nInvalid selection. Please try again.\n')
+elif agencyselected == 'q':
+    print('Exiting...\n')
+    exit()
 
 # assign crime variable
 crime = input("\nDescribe incident:")
 
-# add everything together and assign tweet text to variable
+# verify things look correct. If they do, send the tweet. 
 message = agency + ' ' + division + ': ' + crime.upper()
+print('\n')
 print(message)
+correct = input('\nDoes everything appear correct? [y]/[n]:')
+if correct == 'y':
+    auth = tweepy.OAuthHandler(API, API_SECRET)
+    auth.set_access_token(ACCESS, ACCESS_SECRET)
+    api = tweepy.API(auth)
+    api.update_status(message)
+else:
+    exit()
 
-# authenticate with twitter, then post
-auth = tweepy.OAuthHandler(API, API_SECRET)
-auth.set_access_token(ACCESS, ACCESS_SECRET)
-api = tweepy.API(auth)
-api.update_status(message)
 
