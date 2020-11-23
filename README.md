@@ -5,7 +5,7 @@ PDtweet by Tim Gore
 @MidCityTim 
 tgore323@gmail.com
 
-version 1.0b 11/07/2020
+version 1.0b 11/23/2020
 
 This python program is written to make tweeting out live breaking news easier,
 faster and more accurately. Obviously this is set up for the Los Angeles
